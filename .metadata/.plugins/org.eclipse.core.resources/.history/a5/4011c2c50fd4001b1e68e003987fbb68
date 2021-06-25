@@ -1,0 +1,19 @@
+package products;
+
+import java.util.GregorianCalendar;
+
+public class Beverage extends PerishableProduct{
+	
+	
+	public Beverage(String name, String brand, double price, double quantity, GregorianCalendar expirationDate) {
+		super(name, brand, price, quantity, expirationDate);
+	}
+
+	@Override
+	public String toString() {
+		return name + " " + brand;
+	}
+
+	
+	
+}

@@ -1,0 +1,47 @@
+package products;
+
+import java.util.GregorianCalendar;
+
+public class PerishableProduct extends Product{
+	
+	
+	protected GregorianCalendar expirationDate;
+
+	public PerishableProduct(String name, String brand, double price, GregorianCalendar expirationDate) {
+		super(name, brand, price);
+		this.expirationDate = expirationDate;
+	}
+
+	public GregorianCalendar getExpirationDate() {
+		return expirationDate;
+	}
+
+	public void setExpirationDate(GregorianCalendar expirationDate) {
+		this.expirationDate = expirationDate;
+	}
+
+	//VIDI STA DA RADIS AKO JE ISTEKAO ROK, NISTA NISU POMENULI!
+	public double getPriceWithDiscount(GregorianCalendar purchaseDate) {
+		if(isTheSameDay(purchaseDate, expirationDate)) return 0.5 * price;
+		purchaseDate.add(GregorianCalendar.DAY_OF_MONTH, 5);
+		if(purchaseDate.equals(expirationDate) || purchaseDate.after(expirationDate))return 0.9 * price;
+		return price;
+		
+	}
+	
+	private static boolean isTheSameDay(GregorianCalendar g1,GregorianCalendar g2) {
+		return (g1.get(GregorianCalendar.YEAR)==g2.get(GregorianCalendar.YEAR) &&
+				g1.get(GregorianCalendar.MONTH)==g2.get(GregorianCalendar.MONTH) &&
+						g1.get(GregorianCalendar.DAY_OF_MONTH)==g2.get(GregorianCalendar.DAY_OF_MONTH)
+				);
+				
+	}
+	
+	
+	public static void main(String[] args) {
+		GregorianCalendar g1 = new GregorianCalendar(2021, 7, 23, 6, 15);
+		GregorianCalendar g2 = new GregorianCalendar(2021, 7, 23, 10, 15);
+		System.out.println(isTheSameDay(g1, g2));
+		
+	}
+}

@@ -1,0 +1,55 @@
+package products;
+
+import java.util.GregorianCalendar;
+
+public class Appliance extends Product{
+	
+	private String model;
+	private GregorianCalendar productionDate;
+	private double weight;
+	
+	public Appliance(String name, String brand, double price, String model, GregorianCalendar productionDate,
+			double weight) {
+		super(name, brand, price);
+		this.model = model;
+		this.productionDate = productionDate;
+		this.weight = weight;
+	}
+
+	public String getModel() {
+		return model;
+	}
+
+	public void setModel(String model) {
+		this.model = model;
+	}
+
+	public GregorianCalendar getProductionDate() {
+		return productionDate;
+	}
+
+	public void setProductionDate(GregorianCalendar productionDate) {
+		this.productionDate = productionDate;
+	}
+
+	public double getWeight() {
+		return weight;
+	}
+
+	public void setWeight(double weight) {
+		this.weight = weight;
+	}
+	
+	
+	public static void main(String[] args) {
+		GregorianCalendar danas = new  GregorianCalendar();
+		if (danas.get(GregorianCalendar.DAY_OF_WEEK==GregorianCalendar.SUNDAY)) {
+			System.out.println("Nedjelja");
+		}
+	}
+	
+	
+	
+	
+
+}

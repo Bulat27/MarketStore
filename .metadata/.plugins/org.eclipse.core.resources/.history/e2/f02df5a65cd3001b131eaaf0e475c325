@@ -1,0 +1,47 @@
+package products;
+
+import java.util.GregorianCalendar;
+
+public class Appliance extends Product{
+	
+	String model;
+	GregorianCalendar productionDate;
+	double weight;
+	
+	public Appliance(String model, GregorianCalendar productionDate, double weight) {
+		super();
+		this.model = model;
+		this.productionDate = productionDate;
+		this.weight = weight;
+	}
+
+	public String getModel() {
+		return model;
+	}
+
+	public void setModel(String model) {
+		this.model = model;
+	}
+
+	public GregorianCalendar getProductionDate() {
+		return productionDate;
+	}
+
+	public void setProductionDate(GregorianCalendar productionDate) {
+		this.productionDate = productionDate;
+	}
+
+	public double getWeight() {
+		return weight;
+	}
+
+	public void setWeight(double weight) {
+		this.weight = weight;
+	}
+	
+	
+	
+	
+	
+
+}

@@ -1,0 +1,52 @@
+package products;
+
+import java.util.GregorianCalendar;
+
+public class PerishableProduct extends Product{
+	
+	
+	protected GregorianCalendar expirationDate;
+
+	
+
+	public PerishableProduct(String name, String brand, double price, double quantity,
+			GregorianCalendar expirationDate) {
+		super(name, brand, price, quantity);
+		this.expirationDate = expirationDate;
+	}
+
+	public GregorianCalendar getExpirationDate() {
+		return expirationDate;
+	}
+
+	public void setExpirationDate(GregorianCalendar expirationDate) {
+		this.expirationDate = expirationDate;
+	}
+
+	//VIDI STA DA RADIS AKO JE ISTEKAO ROK, NISTA NISU POMENULI!
+	@Override
+	public double getDiscount(GregorianCalendar purchaseDate) {
+		if(isTheSameDay(purchaseDate, expirationDate)) return 0.5;
+		
+		GregorianCalendar pDClone = (GregorianCalendar) purchaseDate.clone();//If I didn't clone purchase date here, I would add 5 days to it, and it could cause problems later in the program.
+		pDClone.add(GregorianCalendar.DAY_OF_MONTH, 5);
+		
+		if(pDClone.equals(expirationDate) || pDClone.after(expirationDate)) return 0.1;
+		return -1;//-1 indicates that there is no discount!
+	}
+	
+	private boolean isTheSameDay(GregorianCalendar g1,GregorianCalendar g2) {
+		return (g1.get(GregorianCalendar.YEAR) == g2.get(GregorianCalendar.YEAR) &&
+				g1.get(GregorianCalendar.MONTH) == g2.get(GregorianCalendar.MONTH) &&
+				g1.get(GregorianCalendar.DAY_OF_MONTH) == g2.get(GregorianCalendar.DAY_OF_MONTH)
+				);		
+	}
+	
+	
+	/*public static void main(String[] args) {
+		GregorianCalendar g1 = new GregorianCalendar(2021, 7, 23, 6, 15);
+		GregorianCalendar g2 = new GregorianCalendar(2021, 7, 23, 10, 15);
+		System.out.println(isTheSameDay(g1, g2));
+		
+	}*/
+}

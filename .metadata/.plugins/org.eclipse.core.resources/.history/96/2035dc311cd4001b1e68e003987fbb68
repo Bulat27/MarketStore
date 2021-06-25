@@ -1,0 +1,28 @@
+package products;
+
+
+import java.text.DecimalFormat;
+import java.util.GregorianCalendar;
+
+public class Food extends PerishableProduct{
+	
+	public Food(String name, String brand, double price, double quantity, GregorianCalendar expirationDate) {
+		super(name, brand, price, quantity, expirationDate);
+	}
+
+	@Override
+	public String toString() {
+		return name + " - " + brand;
+	}
+	
+	
+	
+	
+	 
+	
+	 public static void main(String[] args) {
+	        double d=2.0;
+	        DecimalFormat df = new DecimalFormat("###.##");
+	        System.out.println("Rounded double (DecimalFormat) : " + df.format(d));
+	    }
+}

@@ -1,0 +1,37 @@
+package products;
+
+import java.util.GregorianCalendar;
+
+public class PerishableProduct extends Product{
+	
+	
+	protected GregorianCalendar expirationDate;
+
+	public PerishableProduct(String name, String brand, double price, GregorianCalendar expirationDate) {
+		super(name, brand, price);
+		this.expirationDate = expirationDate;
+	}
+
+	public GregorianCalendar getExpirationDate() {
+		return expirationDate;
+	}
+
+	public void setExpirationDate(GregorianCalendar expirationDate) {
+		this.expirationDate = expirationDate;
+	}
+
+	
+	public double getPriceWithDiscount(GregorianCalendar purchaseDate) {
+		purchaseDate.add(GregorianCalendar.DAY_OF_MONTH, 5);
+		//if(purchaseDate.equals(expirationDate) || purchaseDate.after(expirationDate))
+		return 0;
+	}
+	
+	public static void main(String[] args) {
+		GregorianCalendar purchaseDate = new GregorianCalendar();
+		GregorianCalendar expirationDate = new GregorianCalendar(2021, 8, 15);
+		purchaseDate.add(GregorianCalendar.DAY_OF_MONTH, 5);
+		System.out.println(purchaseDate);
+		System.out.println(expirationDate);
+	}
+}

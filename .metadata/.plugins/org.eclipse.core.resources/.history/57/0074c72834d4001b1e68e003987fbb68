@@ -1,0 +1,57 @@
+package products;
+
+import java.util.GregorianCalendar;
+
+public abstract class Product {
+
+	protected String name;
+	protected String brand;
+	protected double price;
+	protected double quantity;
+	
+
+	public Product(String name, String brand, double price, double quantity) {
+		super();
+		this.name = name;
+		this.brand = brand;
+		this.price = price;
+		this.quantity = quantity;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getBrand() {
+		return brand;
+	}
+
+	public void setBrand(String brand) {
+		this.brand = brand;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+			
+	public double getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(double quantity) {
+		this.quantity = quantity;
+	}
+
+	public abstract double getDiscount(GregorianCalendar purchaseDate);
+	
+	
+	
+}

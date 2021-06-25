@@ -1,0 +1,13 @@
+package products;
+
+public class Clothes extends Product{
+	
+	private Size size;
+	private String color;
+	
+	
+	
+	
+	
+	
+}

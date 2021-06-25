@@ -1,0 +1,13 @@
+package products;
+
+public class Product {
+
+	private String name;
+	private String brand;
+	private double price;
+	
+	
+	
+	
+	
+}

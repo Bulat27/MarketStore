@@ -1,0 +1,15 @@
+package products;
+
+import java.util.GregorianCalendar;
+
+public class Beverage extends PerishableProduct{
+//It has no specific attributes or methods for now, but it's better to make seperate classes in case of future changes.
+	
+	public Beverage(String name, String brand, double price, GregorianCalendar expirationDate) {
+		super(name, brand, price, expirationDate);
+		// TODO Auto-generated constructor stub
+	}
+
+	
+	
+}
